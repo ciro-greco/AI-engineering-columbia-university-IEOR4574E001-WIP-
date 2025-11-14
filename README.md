@@ -3,7 +3,7 @@
 
 Teaching materials and code from Columbia University's _AI Engineering_Apps_ course (2025 edition).
 Instructor: Ciro Greco 
-contact: cg3136@columbia.edu
+contact: cg3631@columbia.edu
 
 ## Course Overview
 
