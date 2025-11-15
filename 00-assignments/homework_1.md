@@ -106,7 +106,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
     ```
     
 3. Generate **10 samples** for each decoding setup:
-    - Greedy: temperature=0
+    - Greedy: temperature=0.1
     - Temperature: {0.7, 1.0}
     - Top-k: {40, 200} with temperature=0.7
     - Top-p: {0.8, 0.95} with temperature=0.7
