@@ -13,7 +13,6 @@ For grading consistency, follow these exact rules:
     ```
     <your_UNI>_question_1.py
     <your_UNI>_question_2.py
-    <your_UNI>_question_3.py
     ```
     
 2. Include a `requirements.txt` file with the dependencies you used.
