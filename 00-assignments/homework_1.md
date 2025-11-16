@@ -175,39 +175,54 @@ Fine-tune an instruction model (`google/flan-t5-small`) on a small synthetic dat
     - Score:
         - Task A: exact match on labels.
         - Task B: JSON validity and field-level accuracy.
-4. **Fine-tuning configuration:**
-    - Tokenize with `max_length=128` for inputs, `max_length=48` for targets.
-    - Use the Hugging Face `Trainer` API.
-    - Suggested hyperparameters:
-        
-        ```
-        learning_rate=5e-4
-        num_train_epochs=1
-        per_device_train_batch_size=4
-        gradient_accumulation_steps=4
-        weight_decay=0.0
-        logging_steps=50
-        save_total_limit=1
-        max_steps=300  # optional cap
-        
-        ```
-        
-    - Train on CPU only.
-5. **Evaluate after training:**
-    - Reload the best checkpoint.
-    - Repeat the same evaluation.
-    - Print a small table:
-        
-        
-        | Task | Metric | Before SFT | After SFT |
-        | --- | --- | --- | --- |
-        | A | Accuracy |  |  |
-        | B | JSON validity |  |  |
-        | B | Field match |  |  |
-6. **Save artifacts:**
+4. **Fine-tuning configuration and trainer setup:**
+- Use the Hugging Face `Trainer` API.
+- Tokenize with `max_length=128` for inputs and `max_length=48` for targets.
+- Use **CPU-only training** (`no_cuda=True`) to ensure all students run on comparable hardware.
+- Configure the trainer so that the *best checkpoint* is saved and restored automatically.
+- Use the correct data collator for seq2seq models:
+    
+    ```
+    from transformers import DataCollatorForSeq2Seq
+    data_collator = DataCollatorForSeq2Seq(tokenizer=tok_t5, model=model_t5)
+    ```
+    
+- Use the following recommended arguments:
+    
+    ```
+    learning_rate=5e-4
+    num_train_epochs=1
+    per_device_train_batch_size=4
+    gradient_accumulation_steps=4
+    weight_decay=0.0
+    logging_steps=50
+    
+    # Trainer best-checkpoint selection
+    evaluation_strategy="epoch"
+    save_strategy="epoch"
+    load_best_model_at_end=True
+    metric_for_best_model="eval_accuracy"   # or a composite metric
+    greater_is_better=True
+    no_cuda=True
+    ```
+    
+    (You may omit `max_steps` when training by epoch; using both is ambiguous. Keep `num_train_epochs=1` for consistency.)
+    
+1. **Evaluate after training:**
+- Reload the best checkpoint.
+- Repeat the same evaluation.
+- Print a small table:
+    
+    
+    | Task | Metric | Before SFT | After SFT |
+    | --- | --- | --- | --- |
+    | A | Accuracy |  |  |
+    | B | JSON validity |  |  |
+    | B | Field match |  |  |
+1. **Save artifacts:**
     - Save the fine-tuned model in `./sft_model/`.
     - Print total training time and parameter count.
-7. **Comment block at the end (8–10 lines):**
+2. **Comment block at the end (8–10 lines):**
     - Describe where SFT improved or failed.
     - Explain why instruction tuning helps with task formatting and schema alignment.
     - Ground your explanation in the *pretraining → SFT → preference optimization* phases discussed in lecture.
