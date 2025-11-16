@@ -27,7 +27,7 @@ For grading consistency, follow these exact rules:
 4. Submit well-commented, readable code.
 - Your scripts must include clear, concise comments that explain what each major block does and why.
 - Comments should clarify reasoning, assumptions, or equations, **not restate code line-by-line**. Remove only irrelevant clutter such as unused code or commented-out experiments.
-- You genera rule should be aim for code that another engineer or a product manager can understand quickly without your presence.
+- As a general rule, you should aim for code that another engineer or a product manager can understand quickly without your presence.
 
 ### Recommended `requirements.txt`
 
@@ -77,6 +77,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
         
     - Future runs load the model from that local cache; no repeated downloads.
     - If you work on shared machines, each user gets their own cache.
+      
 4. **Offline use**
     
     After the first download, models can be used offline. If your environment blocks internet access, a TA can pre-download them and copy the cache folder to your machine.
@@ -86,7 +87,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
 
 ### Goal
 
-Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity, repetition, and structure. Then improve reliability with a schema-constrained prompt.
+Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity, repetition, and structure. Then, improve reliability with a schema-constrained prompt.
 
 ### Model
 
@@ -95,7 +96,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
 ### Instructions
 
 1. Load model and tokenizer.
-2. Use the fixed base prompt:
+2. Use the this as a base prompt:
     
     ```
     You are given a purchase request. Extract a JSON object with fields item and quantity.
@@ -105,7 +106,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
     ```
     
 3. Generate **10 samples** for each decoding setup:
-    - Greedy: temperature=0.1
+    - Greedy: temperature=0
     - Temperature: {0.7, 1.0}
     - Top-k: {40, 200} with temperature=0.7
     - Top-p: {0.8, 0.95} with temperature=0.7
