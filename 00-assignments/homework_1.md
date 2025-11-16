@@ -153,10 +153,17 @@ Fine-tune an instruction model (`google/flan-t5-small`) on a small synthetic dat
         
         Generate ~200 training and 60 evaluation examples (split across both tasks).
         
+        **Dataset Generation Principles:**
+        - Create examples that require nuanced understanding, not just keyword matching
+        - For sentiment: vary intensity markers (e.g., "good" vs "excellent" vs "perfect")
+        - Include subtle distinctions between adjacent classes (e.g., negative vs very_negative)
+        - Ensure balanced distribution across all classes
+        - Avoid overly obvious examples that rely solely on extreme language
+        
 2. **Format each record** as:
     
     ```
-    Input: "Classify sentiment as positive or negative. Review: 'battery died in two days.' Label:"
+    Input: "Classify sentiment into very_negative, negative, neutral, positive, or very_positive. Review: 'battery died in two days.' Label:"
     Target: "negative"
     
     ```
@@ -165,7 +172,7 @@ Fine-tune an instruction model (`google/flan-t5-small`) on a small synthetic dat
     
     ```
     Input: "Extract JSON with fields item (string) and quantity (integer). Text: 'Order three blue markers for design.' JSON:"
-    Target: {"item": "blue markers", "quantity": 3}
+    Target: '{"item": "blue markers", "quantity": 3}'
     
     ```
     
