@@ -148,7 +148,7 @@ Fine-tune an instruction model (`google/flan-t5-small`) on a small synthetic dat
 ### Instructions
 
 1. **Create two simple tasks in code:**
-    - **Task A – Sentiment classification:** map product reviews to `positive` or `negative`.
+    - **Task A – Sentiment classification:** map product reviews to `very_negative`, `negative`, `neutral`, `positive`, `very_positive`.
     - **Task B – Information extraction:** given an order sentence, output JSON with `item` and `quantity`.
         
         Generate ~200 training and 60 evaluation examples (split across both tasks).
