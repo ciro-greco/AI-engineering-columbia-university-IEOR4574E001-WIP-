@@ -57,7 +57,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
     
     The *tokenizer* converts text to model tokens, and the *model* generates or scores text.
     
-    ```python
+    ```
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
     
     # Causal model for generation (Problem 2)
@@ -198,8 +198,7 @@ Note: Task A will likely show refinement (moderate baseline → better), while t
     ```
     
 - Start from the following training configuration:
-
-      ```python
+  ```
       learning_rate=5e-5             # Standard fine-tuning rate (lower than pretraining to preserve knowledge)
       num_train_epochs=1             # Multiple epochs needed for format learning in Task B
       per_device_train_batch_size=8
@@ -214,7 +213,7 @@ Note: Task A will likely show refinement (moderate baseline → better), while t
       metric_for_best_model="eval_accuracy"
       greater_is_better=True
       use_cpu=True                  # Ensures consistent runtime across different hardware
-      ```
+  ```
 
   If the Tasks show 0% improvement after 1 epoch, this indicates the model needs more training signal. In this case, try:
   - Increasing `learning_rate` to `1e-4` or `5e-4`
