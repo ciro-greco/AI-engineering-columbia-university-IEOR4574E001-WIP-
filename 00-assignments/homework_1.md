@@ -199,7 +199,7 @@ Note: Task A will likely show refinement (moderate baseline → better), while t
     
 - Start from the following training configuration:
 
-      ```python
+      ```
       learning_rate=5e-5             # Standard fine-tuning rate (lower than pretraining to preserve knowledge)
       num_train_epochs=1             # but it is likely that multiple epochs will be needed for format learning in Task B
       per_device_train_batch_size=8
