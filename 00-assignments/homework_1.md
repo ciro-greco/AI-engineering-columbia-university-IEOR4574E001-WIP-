@@ -134,16 +134,6 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
 - Use `max_new_tokens=60`.
 - Use a fixed random seed for reproducibility.
 
-### Grading
-
-| Component | Points |
-| --- | --- |
-| Correct decoding parameter sweeps | 15 |
-| Diversity and repetition metrics | 10 |
-| JSON validity and schema comparison | 10 |
-| Interpretation and commentary | 5 |
-
----
 
 ## Problem 2. Supervised Fine-Tuning (Instruction Tuning) (60%)
 
