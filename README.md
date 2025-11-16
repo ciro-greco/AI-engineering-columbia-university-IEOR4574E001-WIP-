@@ -3,7 +3,13 @@
 
 Teaching materials and code from Columbia University's _AI Engineering_Apps_ course (2025 edition).
 Instructor: Ciro Greco 
-contact: cg3631@columbia.edu
+Contact: `cg3631@columbia.edu`
+
+Instructor and Course Assistants Github handles:
+- Ciro Greco: `ciro-greco`
+- Tvihsa Modi: `TvishaModi`
+- Luong Duong: `luongduong123vn`
+
 
 ## Course Overview
 
