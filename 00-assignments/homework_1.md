@@ -57,7 +57,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
     
     The *tokenizer* converts text to model tokens, and the *model* generates or scores text.
     
-    ```python
+    ```
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
     
     # Causal model for generation (Problem 1)
