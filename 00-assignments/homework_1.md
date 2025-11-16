@@ -27,7 +27,7 @@ For grading consistency, follow these exact rules:
 4. Submit well-commented, readable code.
 - Your scripts must include clear, concise comments that explain what each major block does and why.
 - Comments should clarify reasoning, assumptions, or equations, **not restate code line-by-line**. Remove only irrelevant clutter such as unused code or commented-out experiments.
-- You genera rule should be aim for code that another engineer or a product manager can understand quickly without your presence.
+- As a general rule, you should aim for code that another engineer or a product manager can understand quickly without your presence.
 
 ### Recommended `requirements.txt`
 
@@ -77,6 +77,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
         
     - Future runs load the model from that local cache; no repeated downloads.
     - If you work on shared machines, each user gets their own cache.
+      
 4. **Offline use**
     
     After the first download, models can be used offline. If your environment blocks internet access, a TA can pre-download them and copy the cache folder to your machine.
@@ -86,7 +87,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
 
 ### Goal
 
-Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity, repetition, and structure. Then improve reliability with a schema-constrained prompt.
+Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity, repetition, and structure. Then, improve reliability with a schema-constrained prompt.
 
 ### Model
 
@@ -95,7 +96,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
 ### Instructions
 
 1. Load model and tokenizer.
-2. Use the fixed base prompt:
+2. Use the this as a base prompt:
     
     ```
     You are given a purchase request. Extract a JSON object with fields item and quantity.
@@ -105,7 +106,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
     ```
     
 3. Generate **10 samples** for each decoding setup:
-    - Greedy: temperature=0.1
+    - Greedy: temperature=0
     - Temperature: {0.7, 1.0}
     - Top-k: {40, 200} with temperature=0.7
     - Top-p: {0.8, 0.95} with temperature=0.7
@@ -133,16 +134,6 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
 - Use `max_new_tokens=60`.
 - Use a fixed random seed for reproducibility.
 
-### Grading
-
-| Component | Points |
-| --- | --- |
-| Correct decoding parameter sweeps | 15 |
-| Diversity and repetition metrics | 10 |
-| JSON validity and schema comparison | 10 |
-| Interpretation and commentary | 5 |
-
----
 
 ## Problem 2. Supervised Fine-Tuning (Instruction Tuning) (60%)
 
@@ -184,39 +175,54 @@ Fine-tune an instruction model (`google/flan-t5-small`) on a small synthetic dat
     - Score:
         - Task A: exact match on labels.
         - Task B: JSON validity and field-level accuracy.
-4. **Fine-tuning configuration:**
-    - Tokenize with `max_length=128` for inputs, `max_length=48` for targets.
-    - Use the Hugging Face `Trainer` API.
-    - Suggested hyperparameters:
-        
-        ```
-        learning_rate=5e-4
-        num_train_epochs=1
-        per_device_train_batch_size=4
-        gradient_accumulation_steps=4
-        weight_decay=0.0
-        logging_steps=50
-        save_total_limit=1
-        max_steps=300  # optional cap
-        
-        ```
-        
-    - Train on CPU only.
-5. **Evaluate after training:**
-    - Reload the best checkpoint.
-    - Repeat the same evaluation.
-    - Print a small table:
-        
-        
-        | Task | Metric | Before SFT | After SFT |
-        | --- | --- | --- | --- |
-        | A | Accuracy |  |  |
-        | B | JSON validity |  |  |
-        | B | Field match |  |  |
-6. **Save artifacts:**
+4. **Fine-tuning configuration and trainer setup:**
+- Use the Hugging Face `Trainer` API.
+- Tokenize with `max_length=128` for inputs and `max_length=48` for targets.
+- Use **CPU-only training** (`no_cuda=True`) to ensure all students run on comparable hardware.
+- Configure the trainer so that the *best checkpoint* is saved and restored automatically.
+- Use the correct data collator for seq2seq models:
+    
+    ```
+    from transformers import DataCollatorForSeq2Seq
+    data_collator = DataCollatorForSeq2Seq(tokenizer=tok_t5, model=model_t5)
+    ```
+    
+- Use the following recommended arguments:
+    
+    ```
+    learning_rate=5e-4
+    num_train_epochs=1
+    per_device_train_batch_size=4
+    gradient_accumulation_steps=4
+    weight_decay=0.0
+    logging_steps=50
+    
+    # Trainer best-checkpoint selection
+    evaluation_strategy="epoch"
+    save_strategy="epoch"
+    load_best_model_at_end=True
+    metric_for_best_model="eval_accuracy"   # or a composite metric
+    greater_is_better=True
+    no_cuda=True
+    ```
+    
+    (You may omit `max_steps` when training by epoch; using both is ambiguous. Keep `num_train_epochs=1` for consistency.)
+    
+1. **Evaluate after training:**
+- Reload the best checkpoint.
+- Repeat the same evaluation.
+- Print a small table:
+    
+    
+    | Task | Metric | Before SFT | After SFT |
+    | --- | --- | --- | --- |
+    | A | Accuracy |  |  |
+    | B | JSON validity |  |  |
+    | B | Field match |  |  |
+1. **Save artifacts:**
     - Save the fine-tuned model in `./sft_model/`.
     - Print total training time and parameter count.
-7. **Comment block at the end (8–10 lines):**
+2. **Comment block at the end (8–10 lines):**
     - Describe where SFT improved or failed.
     - Explain why instruction tuning helps with task formatting and schema alignment.
     - Ground your explanation in the *pretraining → SFT → preference optimization* phases discussed in lecture.
