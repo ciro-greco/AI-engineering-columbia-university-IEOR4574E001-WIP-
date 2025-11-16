@@ -57,14 +57,14 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
     
     The *tokenizer* converts text to model tokens, and the *model* generates or scores text.
     
-    ```
+    ```python
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
     
-    # Causal model for generation (Problem 2)
+    # Causal model for generation (Problem 1)
     tok_gpt2 = AutoTokenizer.from_pretrained("distilgpt2")
     model_gpt2 = AutoModelForCausalLM.from_pretrained("distilgpt2")
     
-    # Seq2Seq model for fine-tuning (Problem 3)
+    # Seq2Seq model for fine-tuning (Problem 2)
     tok_t5 = AutoTokenizer.from_pretrained("google/flan-t5-small")
     model_t5 = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small")
     
@@ -151,14 +151,14 @@ Fine-tune an instruction model (`google/flan-t5-small`) on a small synthetic dat
     - **Task A – Sentiment classification:** map product reviews to `very_negative`, `negative`, `neutral`, `positive`, `very_positive`.
     - **Task B – Information extraction:** given an order sentence, output JSON with `item` and `quantity`.
         
-        Generate ~200 training and 60 evaluation examples (split across both tasks).
+    Generate ~200 training and 60 evaluation examples (split across both tasks).
         
-        **Dataset Generation Principles:**
-        - Create examples that require nuanced understanding, not just keyword matching
-        - For sentiment: vary intensity markers (e.g., "good" vs "excellent" vs "perfect")
-        - Include subtle distinctions between adjacent classes (e.g., negative vs very_negative)
-        - Ensure balanced distribution across all classes
-        - Avoid overly obvious examples that rely solely on extreme language
+    **Dataset Generation Principles:**
+    - Create examples that require nuanced understanding, not just keyword matching
+    - For sentiment: vary intensity markers (e.g., "good" vs "excellent" vs "perfect")
+    - Include subtle distinctions between adjacent classes (e.g., negative vs very_negative)
+    - Ensure balanced distribution across all classes
+    - Avoid overly obvious examples that rely solely on extreme language
 
 Note: Task A will likely show refinement (moderate baseline → better), while task B may show format learning (near-zero baseline → working).
  
@@ -198,24 +198,37 @@ Note: Task A will likely show refinement (moderate baseline → better), while t
     ```
     
 - Start from the following training configuration:
-  ```
+
+      ```python
       learning_rate=5e-5             # Standard fine-tuning rate (lower than pretraining to preserve knowledge)
-      num_train_epochs=1             # Multiple epochs needed for format learning in Task B
+      num_train_epochs=1             # but it is likely that multiple epochs will be needed for format learning in Task B
       per_device_train_batch_size=8
       gradient_accumulation_steps=2  # Effective batch size: 16 (balance memory vs stability)
       weight_decay=0.01              # Light regularization to prevent overfitting
       logging_steps=25
 
       # Trainer best-checkpoint selection
-      eval_strategy="epoch"
+      evaluation_strategy="epoch"
       save_strategy="epoch"
       load_best_model_at_end=True
       metric_for_best_model="eval_accuracy"
       greater_is_better=True
-      use_cpu=True                  # Ensures consistent runtime across different hardware
-  ```
+      no_cuda=True                  # Ensures consistent runtime across different hardware
 
-  If the Tasks show 0% improvement after 1 epoch, this indicates the model needs more training signal. In this case, try:
+      # You must define a compute_metrics function and pass it to Trainer.
+      # It should return a dict with a key "eval_accuracy", computed as exact-match
+      # accuracy between the model's *generated* text and the target labels.
+      # Hint:
+      # - Use `predict_with_generate=True` in TrainingArguments so `eval_pred[0]`
+      #   are generated token IDs.
+      # - In compute_metrics(eval_pred), decode predictions and labels with the
+      #   tokenizer, then compute the fraction of examples where prediction == label.
+
+      ```
+
+**IMPORTANT HINTS**: 
+- When defining compute_metrics, do not use the raw logits. Decode the generated predictions into text and compare them to the ground-truth targets to produce eval_accuracy.
+- If the Tasks show little or no improvement after 1 epoch, this might indicate the model needs more training signal. In this case, try:
   - Increasing `learning_rate` to `1e-4` or `5e-4`
   - Extending to `num_train_epochs` to `3` or `5`
 
