@@ -2,7 +2,7 @@
 
 This homework extends what you learned in Weeks 1 and 2 about how language models represent, generate, and adapt language.
 
-You will build a **bigram language model by hand**, explore **decoding behavior**, and **fine-tune an instruction model** on a simple supervised dataset.
+You will explore decoding behavior in a pretrained language model and fine-tune an instruction-following model on a small supervised dataset.
 
 ## Submission format
 
