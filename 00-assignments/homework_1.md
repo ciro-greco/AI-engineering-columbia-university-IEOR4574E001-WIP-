@@ -2,18 +2,17 @@
 
 This homework extends what you learned in Weeks 1 and 2 about how language models represent, generate, and adapt language.
 
-You will build a **bigram language model by hand**, explore **decoding behavior**, and **fine-tune an instruction model** on a simple supervised dataset.
+You will explore decoding behavior in a pretrained language model and fine-tune an instruction-following model on a small supervised dataset.
 
 ## Submission format
 
 For grading consistency, follow these exact rules:
 
-1. Submit three Python scripts with your UNI in as part of the naming convention:
+1. Submit two Python scripts with your UNI in as part of the naming convention:
     
     ```
     <your_UNI>_question_1.py
     <your_UNI>_question_2.py
-    <your_UNI>_question_3.py
     ```
     
 2. Include a `requirements.txt` file with the dependencies you used.
@@ -106,7 +105,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
     ```
     
 3. Generate **10 samples** for each decoding setup:
-    - Greedy: temperature=0
+    - Greedy: temperature=0.1
     - Temperature: {0.7, 1.0}
     - Top-k: {40, 200} with temperature=0.7
     - Top-p: {0.8, 0.95} with temperature=0.7
