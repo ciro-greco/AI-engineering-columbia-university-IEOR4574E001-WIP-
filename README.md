@@ -5,6 +5,12 @@ Teaching materials and code from Columbia University's _AI Engineering_Apps_ cou
 Instructor: Ciro Greco 
 contact: cg3631@columbia.edu
 
+Github handles:
+Ciro Greco: `ciro-greco`
+Tvihsa Modi: `TvishaModi`
+Luong Duong: `luongduong123vn`
+
+
 ## Course Overview
 
 An applied overview of Artificial Intelligence (AI) with an emphasis on real-world industry use cases, deployment practices and tool chain. The course focuses one merging paradigms of LLM-powered applications involving prompt-engineering, fine-tuning and evaluation.
