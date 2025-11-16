@@ -8,7 +8,7 @@ You will explore decoding behavior in a pretrained language model and fine-tune 
 
 For grading consistency, follow these exact rules:
 
-1. Submit three Python scripts with your UNI in as part of the naming convention:
+1. Submit two Python scripts with your UNI in as part of the naming convention:
     
     ```
     <your_UNI>_question_1.py
