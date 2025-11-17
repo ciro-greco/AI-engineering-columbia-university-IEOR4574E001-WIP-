@@ -199,7 +199,7 @@ Note: Task A will likely show refinement (moderate baseline → better), while t
     
 - Start from the following training configuration:
 
-      ```
+  ```
       learning_rate=5e-5             # Standard fine-tuning rate (lower than pretraining to preserve knowledge)
       num_train_epochs=1             # but it is likely that multiple epochs will be needed for format learning in Task B
       per_device_train_batch_size=8
@@ -224,7 +224,7 @@ Note: Task A will likely show refinement (moderate baseline → better), while t
       # - In compute_metrics(eval_pred), decode predictions and labels with the
       #   tokenizer, then compute the fraction of examples where prediction == label.
 
-      ```
+  ```
 
 **IMPORTANT HINTS**: 
 - When defining compute_metrics, do not use the raw logits. Decode the generated predictions into text and compare them to the ground-truth targets to produce eval_accuracy.
