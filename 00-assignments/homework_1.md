@@ -83,7 +83,7 @@ All models used in this homework (`distilgpt2` and `google/flan-t5-small`) are p
     After the first download, models can be used offline. If your environment blocks internet access, a TA can pre-download them and copy the cache folder to your machine.
     
 
-## Problem 1. Decoding Controls and Structured Output (40%)
+## Problem 1. Decoding Controls and Structured Output (40%) - 16% of the total final grading. 
 
 ### Goal
 
@@ -135,7 +135,7 @@ Demonstrate how decoding parameters (temperature, top-k, top-p) affect diversity
 - Use a fixed random seed for reproducibility.
 
 
-## Problem 2. Supervised Fine-Tuning (Instruction Tuning) (60%)
+## Problem 2. Supervised Fine-Tuning (Instruction Tuning) (60%) - 24% of the total final grading
 
 ### Goal
 

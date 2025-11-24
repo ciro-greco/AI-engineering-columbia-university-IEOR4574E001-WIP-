@@ -29,7 +29,6 @@ The course is structured around 7 weeks: 6 weeks of lectures and hands-on labs, 
 * Prompt engineering and evaluation: systematic approaches to prompt design and testing.
 * Fine-tuning: when and how to adapt models to specific domains (maybe). 
 * RAG and Agents: building intelligent systems with retrieval and tool use.
-* Data practices: data versioning, management and data pipelines.
 * Team project: building a functional AI-powered MVP from concept to deployment.
 
 **Important Note:** While these materials offer valuable insights, they can't replace the dynamic classroom experience where real learning happens through discussion, collaboration, and direct mentorship. The AI field moves fast, so this course is going to be updated periodically to reflect the latest developments. We can't replicate the energy of live sessions, but we hope the community will find value in the choices we've made. Want the full experience? Consider joining the Columbia program directly.
@@ -82,15 +81,15 @@ python 01-introduction-and-setup/test_setup.py
 
 ## Course Schedule
 
-| Lesson | Title | Date & Time                         |
-|--------|-------|-------------------------------------|
-| Lesson 1 | Introduction to AI engineering | October 31st, 3pm - 5:30pm          |
-| Lesson 2 | Introduction to LLMs | Friday November 06, 3pm - 5:30pm    |
-| Lesson 3 | LLMs APIs and LLMOps | Friday November 14, 3pm - 5:30pm    |
+| Lesson   | Title                             | Date & Time                         |
+|----------|-----------------------------------|-------------------------------------|
+| Lesson 1 | Introduction to AI engineering    | October 31st, 3pm - 5:30pm          |
+| Lesson 2 | Introduction to LLMs              | Friday November 06, 3pm - 5:30pm    |
+| Lesson 3 | LLMs APIs and LLMOps              | Friday November 14, 3pm - 5:30pm    |
 | Lesson 4 | Prompt engineering and Evaluation | Friday November 21, 3pm - 5:30pm    |
-| Lesson 5 | Finetuning (TBD) | Saturday November 22, 11am - 1:30pm |
-| Lesson 6 | RAG and Agents* | Friday December 5, 3pm - 5:30pm     |
-| Lesson 7 | Demo Day (Final class)** | Saturday December 6, 11am - 1:30pm  |
+| Lesson 5 | Finetuning (TBD)                  | Saturday November 22, 11am - 1:30pm |
+| Lesson 6 | RAG and Agents*                   | Friday December 5, 3pm - 5:30pm     |
+| Lesson 7 | Demo Day (Final class)**          | Saturday December 6, 11am - 1:30pm  |
 
 \* *Guest speakers: Jacopo Tagliabue and Simon Gelinas*  
 \** *Live team demos & presentations (presentation length determined by final number of teams)*
@@ -99,10 +98,10 @@ python 01-introduction-and-setup/test_setup.py
 
 **Summary of graded components**
 
-- **Two individual take‑home assignments — 25% each**
+- **Two take‑home Problem — 20% each**
     - Format: take‑home; scope and deliverables provided with each assignment brief
     - Submission: via Courseworks by the posted deadline - please add your final submission also to your github account
-- **Team Project — 50% (total)**
+- **Team Project — 60% (total)**
     - See “Team Project (Capstone)” below for details and expectations
 
 > There is no sit‑down midterm or final exam. Mastery is evaluated through the take‑home assignments and the team project.
@@ -116,31 +115,4 @@ Design and build a small but functional AI application. For example, a RAG syste
 Choose a real problem and treat this as an MVP for a startup‑quality idea or a project that you are submitting to your product or engineering team. 
 The domain is entirely up to you. The project will have to be submitted as a Github Repository.
 
-**Team formation**
-
-- Teams will be formed in class: **minimum 3 maximum 5** per team.
-
-**Project selection & proposal**
-
-- Each team will **select and scope** its project **within the first three weeks**.
-- **Proposal due:** End of Week 3 (exact date/time posted in class). Suggested contents (1–2 pages): problem statement, intended users, and an initial indication of the MVP features.
-
-**Demo Day**
-
-- Live demo + presentation. **Presentation time will depend on the total number of teams.**
-- Every team member is encouraged to participate in the presentation and/or the live demo.
-
-**Final deliverables (submitted before Demo Day)**
-
-- **Working prototype** (repository or deployed app with a comprehensive README).
-- **Short product brief** (≈2 pages) describing the problem, approach, system architecture, and what you learned.
-- **Demo video** (e.g., 3–5 minute screencast) in case of live‑demo issues.
-- **Technical appendix** (optional but encouraged): model/card, data sources, prompt strategies, evaluation metrics, and key engineering decisions.
-
-**Project grading rubric (adds up to 50% of course grade)**
-
-- **Functionality & Reliability (30%)** — Does the MVP actually solve the stated task? Is it robust enough to demo?
-- **Technical Approach & Rigor (30%)** — Sound choices of models/APIs, data handling, retrieval/grounding, prompt design, and evaluation.
-- **Product Thinking & UX (20%)** — Clear user story, scoping, and an experience that makes sense for the target user.
-- **Communication & Teamwork (%)** — Clear proposal, demo, and write‑up, equitable collaboration and role clarity.
-- 
+For more detail on the capstone project see the [capstone_guide.md](00-capstone-guide%2Fcapstone_guide.md)
