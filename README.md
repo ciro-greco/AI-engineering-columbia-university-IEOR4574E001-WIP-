@@ -98,13 +98,14 @@ python 01-introduction-and-setup/test_setup.py
 
 **Summary of graded components**
 
-- **Two take‑home Problem — 20% each**
+- **One take‑home assignment — 40% (total)**
     - Format: take‑home; scope and deliverables provided with each assignment brief
     - Submission: via Courseworks by the posted deadline - please add your final submission also to your github account
 - **Team Project — 60% (total)**
     - See “Team Project (Capstone)” below for details and expectations
 
 > There is no sit‑down midterm or final exam. Mastery is evaluated through the take‑home assignments and the team project.
+
 
 
 ## Team Project (Capstone)
