@@ -95,7 +95,6 @@ python 01-introduction-and-setup/test_setup.py
 \** *Live team demos & presentations (presentation length determined by final number of teams)*
 
 ## Assessments & Grading
-
 **Summary of graded components**
 
 - **One take‑home assignment — 40% (total)**
