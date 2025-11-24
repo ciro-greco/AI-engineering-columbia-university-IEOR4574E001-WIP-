@@ -29,7 +29,6 @@ The course is structured around 7 weeks: 6 weeks of lectures and hands-on labs, 
 * Prompt engineering and evaluation: systematic approaches to prompt design and testing.
 * Fine-tuning: when and how to adapt models to specific domains (maybe). 
 * RAG and Agents: building intelligent systems with retrieval and tool use.
-* Data practices: data versioning, management and data pipelines.
 * Team project: building a functional AI-powered MVP from concept to deployment.
 
 **Important Note:** While these materials offer valuable insights, they can't replace the dynamic classroom experience where real learning happens through discussion, collaboration, and direct mentorship. The AI field moves fast, so this course is going to be updated periodically to reflect the latest developments. We can't replicate the energy of live sessions, but we hope the community will find value in the choices we've made. Want the full experience? Consider joining the Columbia program directly.
@@ -82,15 +81,15 @@ python 01-introduction-and-setup/test_setup.py
 
 ## Course Schedule
 
-| Lesson | Title | Date & Time                         |
-|--------|-------|-------------------------------------|
-| Lesson 1 | Introduction to AI engineering | October 31st, 3pm - 5:30pm          |
-| Lesson 2 | Introduction to LLMs | Friday November 06, 3pm - 5:30pm    |
-| Lesson 3 | LLMs APIs and LLMOps | Friday November 14, 3pm - 5:30pm    |
+| Lesson   | Title                             | Date & Time                         |
+|----------|-----------------------------------|-------------------------------------|
+| Lesson 1 | Introduction to AI engineering    | October 31st, 3pm - 5:30pm          |
+| Lesson 2 | Introduction to LLMs              | Friday November 06, 3pm - 5:30pm    |
+| Lesson 3 | LLMs APIs and LLMOps              | Friday November 14, 3pm - 5:30pm    |
 | Lesson 4 | Prompt engineering and Evaluation | Friday November 21, 3pm - 5:30pm    |
-| Lesson 5 | Finetuning (TBD) | Saturday November 22, 11am - 1:30pm |
-| Lesson 6 | RAG and Agents* | Friday December 5, 3pm - 5:30pm     |
-| Lesson 7 | Demo Day (Final class)** | Saturday December 6, 11am - 1:30pm  |
+| Lesson 5 | Finetuning (TBD)                  | Saturday November 22, 11am - 1:30pm |
+| Lesson 6 | RAG and Agents*                   | Friday December 5, 3pm - 5:30pm     |
+| Lesson 7 | Demo Day (Final class)**          | Saturday December 6, 11am - 1:30pm  |
 
 \* *Guest speakers: Jacopo Tagliabue and Simon Gelinas*  
 \** *Live team demos & presentations (presentation length determined by final number of teams)*
@@ -99,10 +98,10 @@ python 01-introduction-and-setup/test_setup.py
 
 **Summary of graded components**
 
-- **Two individual take‑home assignments — 25% each**
+- **Two take‑home Problem — 20% each**
     - Format: take‑home; scope and deliverables provided with each assignment brief
     - Submission: via Courseworks by the posted deadline - please add your final submission also to your github account
-- **Team Project — 50% (total)**
+- **Team Project — 60% (total)**
     - See “Team Project (Capstone)” below for details and expectations
 
 > There is no sit‑down midterm or final exam. Mastery is evaluated through the take‑home assignments and the team project.
