@@ -115,31 +115,4 @@ Design and build a small but functional AI application. For example, a RAG syste
 Choose a real problem and treat this as an MVP for a startup‑quality idea or a project that you are submitting to your product or engineering team. 
 The domain is entirely up to you. The project will have to be submitted as a Github Repository.
 
-**Team formation**
-
-- Teams will be formed in class: **minimum 3 maximum 5** per team.
-
-**Project selection & proposal**
-
-- Each team will **select and scope** its project **within the first three weeks**.
-- **Proposal due:** End of Week 3 (exact date/time posted in class). Suggested contents (1–2 pages): problem statement, intended users, and an initial indication of the MVP features.
-
-**Demo Day**
-
-- Live demo + presentation. **Presentation time will depend on the total number of teams.**
-- Every team member is encouraged to participate in the presentation and/or the live demo.
-
-**Final deliverables (submitted before Demo Day)**
-
-- **Working prototype** (repository or deployed app with a comprehensive README).
-- **Short product brief** (≈2 pages) describing the problem, approach, system architecture, and what you learned.
-- **Demo video** (e.g., 3–5 minute screencast) in case of live‑demo issues.
-- **Technical appendix** (optional but encouraged): model/card, data sources, prompt strategies, evaluation metrics, and key engineering decisions.
-
-**Project grading rubric (adds up to 50% of course grade)**
-
-- **Functionality & Reliability (30%)** — Does the MVP actually solve the stated task? Is it robust enough to demo?
-- **Technical Approach & Rigor (30%)** — Sound choices of models/APIs, data handling, retrieval/grounding, prompt design, and evaluation.
-- **Product Thinking & UX (20%)** — Clear user story, scoping, and an experience that makes sense for the target user.
-- **Communication & Teamwork (%)** — Clear proposal, demo, and write‑up, equitable collaboration and role clarity.
-- 
+For more detail on the capstone project see the [capstone_guide.md](00-capstone-guide%2Fcapstone_guide.md)
